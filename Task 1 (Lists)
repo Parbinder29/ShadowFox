@@ -1,0 +1,26 @@
+justice_league = ["Superman", "Batman", "Wonder Woman", "Flash", "Aquaman", "Green Lantern"]
+print("1. Original:", justice_league)
+
+# Add Batgirl and Nightwing
+justice_league.extend(["Batgirl", "Nightwing"])
+print("2. After recruitment:", justice_league)
+
+# Move Wonder Woman to front
+justice_league.remove("Wonder Woman")
+justice_league.insert(0, "Wonder Woman")
+print("3. Wonder Woman is leader:", justice_league)
+
+# Separate Aquaman and Flash with Superman
+justice_league.remove("Superman")
+index_flash = justice_league.index("Flash")
+justice_league.insert(index_flash, "Superman")
+print("4. Superman between Aquaman and Flash:", justice_league)
+
+# Replace the list
+justice_league = ["Cyborg", "Shazam", "Hawkgirl", "Martian Manhunter", "Green Arrow"]
+print("5. New team:", justice_league)
+
+# Sort and show new leader
+justice_league.sort()
+print("6. Sorted team:", justice_league)
+print("New Leader:", justice_league[0])
