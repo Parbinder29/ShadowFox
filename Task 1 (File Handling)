@@ -1,0 +1,26 @@
+import csv
+
+# 7.1 Read existing CSV file and create dictionary (demo sample)
+# Let's assume we have a list of student records:
+students_data = [
+    {"Name": "Amit", "Math": 80, "Science": 70, "English": 90},
+    {"Name": "Priya", "Math": 85, "Science": 75, "English": 95},
+    {"Name": "Rohit", "Math": 78, "Science": 80, "English": 82},
+]
+
+# Add total and average fields
+for student in students_data:
+    total = student["Math"] + student["Science"] + student["English"]
+    average = total / 3
+    student["Total"] = total
+    student["Average"] = round(average, 2)
+
+# 7.2 Write new data to file
+with open("student_results.csv", "w", newline="") as file:
+    fieldnames = ["Name", "Math", "Science", "English", "Total", "Average"]
+    writer = csv.DictWriter(file, fieldnames=fieldnames)
+    writer.writeheader()
+    for student in students_data:
+        writer.writerow(student)
+
+print("Student results written to student_results.csv")
