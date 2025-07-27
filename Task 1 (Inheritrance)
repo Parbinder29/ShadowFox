@@ -1,0 +1,35 @@
+class MobilePhone:
+    def __init__(self, screen_type, network_type, dual_sim, front_camera, rear_camera, ram, storage):
+        self.screen_type = screen_type
+        self.network_type = network_type
+        self.dual_sim = dual_sim
+        self.front_camera = front_camera
+        self.rear_camera = rear_camera
+        self.ram = ram
+        self.storage = storage
+
+    def make_call(self):
+        print("Making a call...")
+
+    def receive_call(self):
+        print("Receiving a call...")
+
+    def take_picture(self):
+        print(f"Taking a picture with {self.rear_camera} rear camera")
+
+class Apple(MobilePhone):
+    def __init__(self, model, *args):
+        super().__init__(*args)
+        self.model = model
+
+class Samsung(MobilePhone):
+    def __init__(self, model, *args):
+        super().__init__(*args)
+        self.model = model
+
+# Create Apple and Samsung objects
+iphone = Apple("iPhone 14", "Touch Screen", "5G", False, "12MP", "48MP", "4GB", "64GB")
+s22 = Samsung("Galaxy S22", "Touch Screen", "5G", True, "10MP", "32MP", "4GB", "128GB")
+
+iphone.make_call()
+s22.take_picture()
