@@ -1,0 +1,32 @@
+
+# 5.1 Dice roll simulation
+
+import random
+rolls = [random.randint(1, 6) for _ in range(20)]
+count_6 = rolls.count(6)
+count_1 = rolls.count(1)
+# Count two 6s in a row
+count_double_6 = 0
+for i in range(len(rolls) - 1):
+    if rolls[i] == 6 and rolls[i+1] == 6:
+        count_double_6 += 1
+print("Rolls:", rolls)
+print("Number of 6s:", count_6)
+print("Number of 1s:", count_1)
+print("Two 6s in a row:", count_double_6)
+
+
+# 5.2 Jumping jacks tracker
+
+completed = 0
+while completed < 100:
+    completed += 10
+    print(f"You have completed {completed} jumping jacks.")
+    tired = input("Are you tired? (yes/no): ").lower()
+    if tired in ["yes", "y"]:
+        skip = input("Do you want to skip the remaining sets? (yes/no): ").lower()
+        if skip in ["yes", "y"]:
+            print(f"You completed a total of {completed} jumping jacks.")
+            break
+else:
+    print("Congratulations! You completed the workout")
