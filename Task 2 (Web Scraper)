@@ -1,0 +1,34 @@
+import requests
+from bs4 import BeautifulSoup
+import csv
+
+# Target URL (Example ShadowFox-like website)
+url = "https://shadowfox.in/" 
+
+try:
+    response = requests.get(url, timeout=10)
+    response.raise_for_status()  # Raise HTTPError for bad status
+    soup = BeautifulSoup(response.text, 'html.parser')
+
+    # Example: Extract all links and their texts
+    links = soup.find_all('a')
+    extracted_data = []
+
+    for link in links:
+        text = link.get_text(strip=True)
+        href = link.get('href')
+        if text and href:
+            extracted_data.append({"text": text, "link": href})
+
+    # Save data to CSV
+    with open("shadowfox_links.csv", "w", newline="", encoding="utf-8") as file:
+        writer = csv.DictWriter(file, fieldnames=["text", "link"])
+        writer.writeheader()
+        writer.writerows(extracted_data)
+
+    print("✅ Scraping completed and data saved to shadowfox_links.csv")
+
+except requests.exceptions.RequestException as e:
+    print("Error during request:", e)
+except Exception as e:
+    print("General error:", e)
