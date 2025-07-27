@@ -1,0 +1,30 @@
+#NUmbers Task 1
+
+num = 145
+char = 'o'
+formatted = "{} is formatted as {:o}".format(num, num)
+print(formatted)
+
+
+#Numbers Task 2
+
+radius = 84
+pi = 3.14
+area = pi * (radius ** 2)
+water_per_m2 = 1.4
+total_water = int(area * water_per_m2)
+
+print("Pond area:", area)
+print("Total water in liters (no decimal):", total_water)
+
+
+#Numbers Task 3
+
+distance = 490  # meters
+time_minutes = 7
+time_seconds = time_minutes * 60
+
+speed = int(distance / time_seconds)
+print("Speed in meters per second (no decimal):", speed)
+
+
